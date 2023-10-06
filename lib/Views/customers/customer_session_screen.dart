@@ -13,6 +13,8 @@ class CustomerSessionScreen extends StatefulWidget {
 }
 
 class _CustomerSessionScreenState extends State<CustomerSessionScreen> {
+  int selectedRowIndex = -1;
+  bool selectedRowIndex1 = false;
   Color _getColorForText(String text) {
     if (text == 'Payed') {
       return const Color(0xff22C55E);
@@ -73,7 +75,7 @@ class _CustomerSessionScreenState extends State<CustomerSessionScreen> {
                                 ),
                                 TextSpan(
                                   text: AppLocalizations.of(context)!.joaoPedro,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     color: AppColors.blackColor,
                                     fontSize: 24,
                                     fontFamily: AppFonts.font,
@@ -90,17 +92,17 @@ class _CustomerSessionScreenState extends State<CustomerSessionScreen> {
                             children: [
                               Row(
                                 children: [
-                                  InkWell(
-                                    onTap: () {
-                                      setState(() {
-                                        isCalendarSelected = true;
-                                        showSession = true;
-                                        showInformation = false;
-                                      });
-                                    },
-                                    child: SizedBox(
-                                      width: 120,
-                                      height: 23,
+                                  SizedBox(
+                                    width: 120,
+                                    height: 23,
+                                    child: InkWell(
+                                      onTap: () {
+                                        setState(() {
+                                          isCalendarSelected = true;
+                                          showSession = true;
+                                          showInformation = false;
+                                        });
+                                      },
                                       child: Text(
                                         AppLocalizations.of(context)!.session,
                                         textAlign: TextAlign.center,
@@ -115,16 +117,16 @@ class _CustomerSessionScreenState extends State<CustomerSessionScreen> {
                                       ),
                                     ),
                                   ),
-                                  InkWell(
-                                    onTap: () {
-                                      setState(() {
-                                        isCalendarSelected = false;
-                                        showSession = false;
-                                      });
-                                    },
-                                    child: SizedBox(
-                                      width: 120,
-                                      height: 23,
+                                  SizedBox(
+                                    width: 120,
+                                    height: 23,
+                                    child: InkWell(
+                                      onTap: () {
+                                        setState(() {
+                                          isCalendarSelected = false;
+                                          showSession = false;
+                                        });
+                                      },
                                       child: Text(
                                         AppLocalizations.of(context)!.information,
                                         textAlign: TextAlign.center,
@@ -147,6 +149,9 @@ class _CustomerSessionScreenState extends State<CustomerSessionScreen> {
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
+                                  const SizedBox(
+                                    width: 15,
+                                  ),
                                   InkWell(
                                     onTap: () {
                                       setState(() {
@@ -154,7 +159,7 @@ class _CustomerSessionScreenState extends State<CustomerSessionScreen> {
                                       });
                                     },
                                     child: Container(
-                                      width: 110,
+                                      width: 95,
                                       height: 3,
                                       color: isCalendarSelected
                                           ? AppColors.blueTextColor
@@ -168,7 +173,7 @@ class _CustomerSessionScreenState extends State<CustomerSessionScreen> {
                                       });
                                     },
                                     child: Container(
-                                      width: 110,
+                                      width: 120,
                                       height: 3,
                                       color: isCalendarSelected
                                           ? AppColors.hintColor
@@ -210,17 +215,23 @@ class _CustomerSessionScreenState extends State<CustomerSessionScreen> {
                               children: [
                                 Row(
                                   children: [
-                                    Checkbox(
+
+
+
+
+                                    /*Checkbox(
                                       shape: const CircleBorder(),
+                                      activeColor: Colors.white,
+                                      checkColor: AppColors.blueTextColor,
                                       value: checkBoxValue,
                                       onChanged: (bool? newValue) {
                                         setState(() {
                                           checkBoxValue = newValue!;
                                         });
                                       },
-                                    ),
+                                    ),*/
                                     const SizedBox(
-                                      width: 30,
+                                      width: 60,
                                     ),
                                     SizedBox(
                                       width:
@@ -228,8 +239,8 @@ class _CustomerSessionScreenState extends State<CustomerSessionScreen> {
                                       child:  Align(
                                         alignment: Alignment.topLeft,
                                         child: Text(
-                                          AppLocalizations.of(context)!.date,
-                                          style: TextStyle(
+                                          AppLocalizations.of(context)!.dat,
+                                          style: const TextStyle(
                                             color: AppColors.blackColor,
                                             fontSize: 18,
                                             fontFamily: AppFonts.font,
@@ -246,7 +257,7 @@ class _CustomerSessionScreenState extends State<CustomerSessionScreen> {
                                         children: [
                                           Text(
                                             AppLocalizations.of(context)!.service,
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                               color: AppColors.blackColor,
                                               fontSize: 18,
                                               fontFamily: AppFonts.font,
@@ -254,10 +265,10 @@ class _CustomerSessionScreenState extends State<CustomerSessionScreen> {
                                               letterSpacing: 0.19,
                                             ),
                                           ),
-                                          SizedBox(
+                                          const SizedBox(
                                             width: 10,
                                           ),
-                                          Icon(
+                                          const Icon(
                                             Icons.arrow_upward,
                                             size: 18,
                                           ),
@@ -283,7 +294,7 @@ class _CustomerSessionScreenState extends State<CustomerSessionScreen> {
                                           MediaQuery.sizeOf(context).height * 0.35,
                                       child:  Text(
                                         AppLocalizations.of(context)!.payment,
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                           color: AppColors.blackColor,
                                           fontSize: 18,
                                           fontFamily: AppFonts.font,
@@ -294,10 +305,10 @@ class _CustomerSessionScreenState extends State<CustomerSessionScreen> {
                                     ),
                                     SizedBox(
                                       width:
-                                          MediaQuery.sizeOf(context).height * 0.3,
+                                          MediaQuery.sizeOf(context).height * 0.25,
                                       child:  Text(
                                         AppLocalizations.of(context)!.modality,
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                           color: AppColors.blackColor,
                                           fontSize: 18,
                                           fontFamily: AppFonts.font,
@@ -308,136 +319,152 @@ class _CustomerSessionScreenState extends State<CustomerSessionScreen> {
                                     ),
                                   ],
                                 ),
-                                const Divider(),
+                                const Divider(
+                                  height: 1,
+                                ),
                                 Expanded(
                                   child: ListView.builder(
                                     itemCount: sessionDataItems.length,
                                     itemBuilder: (context, index) {
                                       return Column(
                                         children: [
-                                          Row(
-                                            children: [
-                                              Checkbox(
-                                                shape: const CircleBorder(),
-                                                value: checkBoxValue,
-                                                onChanged: (bool? newValue) {
-                                                  setState(() {
-                                                    checkBoxValue = newValue!;
-                                                  });
-                                                },
+                                          GestureDetector(
+                                            onTap: () {
+                                              setState(() {
+                                                selectedRowIndex = index;
+                                                //selectedRowIndex1 = !selectedRowIndex1 ;
+                                              });
+                                            },
+                                            child: Container(
+                                              height: 47,
+                                              decoration:BoxDecoration(
+                                                  color: selectedRowIndex == index ? const Color(0x380A80BD): Colors.white,
+                                                  borderRadius: BorderRadius.circular(3)
                                               ),
-                                              const SizedBox(
-                                                width: 30,
-                                              ),
-                                              SizedBox(
-                                                width: MediaQuery.sizeOf(context)
-                                                        .height *
-                                                    0.3,
-                                                child: Align(
-                                                  alignment: Alignment.topLeft,
-                                                  child: Text(
-                                                    sessionDataItems[index].date,
-                                                    style: const TextStyle(
-                                                      color: AppColors.blackColor,
-                                                      fontSize: 16,
-                                                      fontFamily: AppFonts.font,
-                                                      fontWeight: FontWeight.w400,
-                                                      letterSpacing: 0.19,
+                                              child: Row(
+
+                                                children: [
+                                                  const SizedBox(width: 10,),
+                                                  SizedBox(
+                                                    height: 18,
+                                                    width: 18,
+                                                    child: selectedRowIndex == index
+                                                        ? SvgPicture.asset("assets/svg/Icontick.svg")
+                                                        : SvgPicture.asset("assets/svg/IconEmpty.svg"),),
+
+                                                  const SizedBox(
+                                                    width: 30,
+                                                  ),
+                                                  SizedBox(
+                                                    width: MediaQuery.sizeOf(context)
+                                                            .height *
+                                                        0.3,
+                                                    child: Text(
+                                                      sessionDataItems[index].date,
+                                                      style: const TextStyle(
+                                                        color: AppColors.blackColor,
+                                                        fontSize: 16,
+                                                        fontFamily: AppFonts.font,
+                                                        fontWeight: FontWeight.w400,
+
+                                                      ),
                                                     ),
                                                   ),
-                                                ),
-                                              ),
-                                              SizedBox(
-                                                width: MediaQuery.sizeOf(context)
-                                                        .height *
-                                                    0.3,
-                                                child: Text(
-                                                    sessionDataItems[index].service,
-                                                  style: const TextStyle(
-                                                    color: AppColors.blackColor,
-                                                    fontSize: 16,
-                                                    fontFamily: AppFonts.font,
-                                                    fontWeight: FontWeight.w400,
-                                                    letterSpacing: 0.19,
-                                                  ),
-                                                ),
-                                              ),
-                                              SizedBox(
-                                                width: MediaQuery.sizeOf(context)
-                                                        .height *
-                                                    0.3,
-                                                child: Text(
-                                      sessionDataItems[index].price,
-                                                  style: const TextStyle(
-                                                    color: AppColors.blackColor,
-                                                    fontSize: 16,
-                                                    fontFamily: AppFonts.font,
-                                                    fontWeight: FontWeight.w400,
-                                                    letterSpacing: 0.19,
-                                                  ),
-                                                ),
-                                              ),
-                                              SizedBox(
-                                                width: MediaQuery.sizeOf(context)
-                                                        .height *
-                                                    0.35,
-                                                child: Column(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  children: [
-                                                    Container(
-                                                      width: 100,
-                                                      height: 30,
-                                                      padding: const EdgeInsets
-                                                          .symmetric(
-                                                          horizontal: 12,
-                                                          vertical: 2),
-                                                      decoration: ShapeDecoration(
-                                                        color: _getColorForText(
-                                                          sessionDataItems[index].paymentStatus,), // Change 'Cancelled' to your text
-                                                        shape:
-                                                            RoundedRectangleBorder(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(100),
-                                                        ),
+                                                  SizedBox(
+                                                    width: MediaQuery.sizeOf(context)
+                                                            .height *
+                                                        0.3,
+                                                    child: Text(
+                                                        sessionDataItems[index].service,
+                                                      style: const TextStyle(
+                                                        color: AppColors.blackColor,
+                                                        fontSize: 16,
+                                                        fontFamily: AppFonts.font,
+                                                        fontWeight: FontWeight.w400,
+
                                                       ),
-                                                      child:  Center(
-                                                        child: Text(
+                                                    ),
+                                                  ),
+                                                  SizedBox(
+                                                    width: MediaQuery.sizeOf(context)
+                                                            .height *
+                                                        0.3,
+                                                    child: Text(
+                                      sessionDataItems[index].price,
+                                                      style: const TextStyle(
+                                                        color: AppColors.blackColor,
+                                                        fontSize: 16,
+                                                        fontFamily: AppFonts.font,
+                                                        fontWeight: FontWeight.w400,
+
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  SizedBox(
+                                                    width: MediaQuery.sizeOf(context)
+                                                            .height *
+                                                        0.35,
+                                                    child: Column(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment.center,
+                                                      children: [
+                                                        Container(
+                                                          width: 100,
+                                                          height: 30,
+                                                          padding: const EdgeInsets
+                                                              .symmetric(
+                                                              horizontal: 12,
+                                                              vertical: 2),
+                                                          decoration: ShapeDecoration(
+                                                            color: _getColorForText(
+                                                              sessionDataItems[index].paymentStatus,), // Change 'Cancelled' to your text
+                                                            shape:
+                                                                RoundedRectangleBorder(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(100),
+                                                            ),
+                                                          ),
+                                                          child:  Center(
+                                                            child: Text(
                                       sessionDataItems[index].paymentStatus, // Change this text to the one you want to use
-                                                          style: const TextStyle(
-                                                            color: AppColors
-                                                                .whiteColor,
-                                                            fontSize: 12,
-                                                            fontFamily:
-                                                                AppFonts.font,
-                                                            fontWeight:
-                                                                FontWeight.w500,
+                                                              style: const TextStyle(
+                                                                color: AppColors
+                                                                    .whiteColor,
+                                                                fontSize: 12,
+                                                                fontFamily:
+                                                                    AppFonts.font,
+                                                                fontWeight:
+                                                                    FontWeight.w500,
+                                                              ),
+                                                            ),
                                                           ),
                                                         ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  SizedBox(
+                                                    width: MediaQuery.sizeOf(context)
+                                                            .height *
+                                                        0.25,
+                                                    child: Text(
+                                      sessionDataItems[index].modality,
+                                                      style: const TextStyle(
+                                                        color: AppColors.blackColor,
+                                                        fontSize: 16,
+                                                        fontFamily: AppFonts.font,
+                                                        fontWeight: FontWeight.w400,
+
                                                       ),
                                                     ),
-                                                  ],
-                                                ),
-                                              ),
-                                              SizedBox(
-                                                width: MediaQuery.sizeOf(context)
-                                                        .height *
-                                                    0.3,
-                                                child: Text(
-                                      sessionDataItems[index].modality,
-                                                  style: const TextStyle(
-                                                    color: AppColors.blackColor,
-                                                    fontSize: 16,
-                                                    fontFamily: AppFonts.font,
-                                                    fontWeight: FontWeight.w400,
-                                                    letterSpacing: 0.19,
                                                   ),
-                                                ),
+                                                ],
                                               ),
-                                            ],
+                                            ),
                                           ),
-                                          const Divider(),
+                                          const Divider(
+                                            height: 1,
+                                          ),
                                         ],
                                       );
                                     },
@@ -519,7 +546,7 @@ class _CustomerSessionScreenState extends State<CustomerSessionScreen> {
 
                                  Text(
                                   AppLocalizations.of(context)!.email,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     color: AppColors.blackColor,
                                     fontSize: 18,
                                     fontFamily: AppFonts.font,
@@ -543,7 +570,7 @@ class _CustomerSessionScreenState extends State<CustomerSessionScreen> {
 
                                  Text(
                                   AppLocalizations.of(context)!.phone,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     color: AppColors.blackColor,
                                     fontSize: 18,
                                     fontFamily: AppFonts.font,
@@ -567,7 +594,7 @@ class _CustomerSessionScreenState extends State<CustomerSessionScreen> {
 
                                  Text(
                                   AppLocalizations.of(context)!.nameSurname,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     color: AppColors.blackColor,
                                     fontSize: 18,
                                     fontFamily: AppFonts.font,
@@ -603,4 +630,5 @@ class _CustomerSessionScreenState extends State<CustomerSessionScreen> {
     );
   }
 }
+
 

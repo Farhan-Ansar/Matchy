@@ -164,17 +164,20 @@ class _CalendarState extends State<Calendar> {
                           width: 200,
                         ),
                         Column(
+
                           children: [
                             Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.start,
                               children: [
-                                InkWell(
-                                  onTap: () {
-                                    setState(() {
-                                      isCalendarSelected = true;
-                                    });
-                                  },
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
+                                Padding(
+                                  padding:const EdgeInsets.symmetric(vertical: 8.0,horizontal: 20),
+                                  child: InkWell(
+                                    onTap: () {
+                                      setState(() {
+                                        isCalendarSelected = true;
+                                      });
+                                    },
                                     child: Text(
                                       AppLocalizations.of(context)!.calendar,
                                       style: TextStyle(
@@ -188,14 +191,14 @@ class _CalendarState extends State<Calendar> {
                                     ),
                                   ),
                                 ),
-                                InkWell(
-                                  onTap: () {
-                                    setState(() {
-                                      isCalendarSelected = false;
-                                    });
-                                  },
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
+                                Padding(
+                                  padding:const EdgeInsets.symmetric(vertical: 8.0,horizontal: 20),
+                                  child: InkWell(
+                                    onTap: () {
+                                      setState(() {
+                                        isCalendarSelected = false;
+                                      });
+                                    },
                                     child: Text(
                                       AppLocalizations.of(context)!.list,
                                       style: TextStyle(
@@ -214,6 +217,7 @@ class _CalendarState extends State<Calendar> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
+                                SizedBox(width: 10,),
                                 InkWell(
                                   onTap: () {
                                     setState(() {
@@ -221,7 +225,7 @@ class _CalendarState extends State<Calendar> {
                                     });
                                   },
                                   child: Container(
-                                    width: 85,
+                                    width: 105,
                                     height: isCalendarSelected ? 7 : 3,
                                     color: isCalendarSelected
                                         ? AppColors.blueTextColor
@@ -235,7 +239,7 @@ class _CalendarState extends State<Calendar> {
                                     });
                                   },
                                   child: Container(
-                                    width: 65,
+                                    width: 90,
                                     height: isCalendarSelected ? 3 : 7,
                                     color: isCalendarSelected
                                         ? AppColors.hintColor

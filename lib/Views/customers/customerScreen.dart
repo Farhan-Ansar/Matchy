@@ -24,6 +24,8 @@ class _CustomerState extends State<Customer> {
       neighborhood: 'Sao Paulo',
     ),
   );
+  int selectedRowIndex = -1;
+  bool selectedRowIndex1 = false;
   bool isCalendarSelected = true;
   bool checkBoxValue = false;
   @override
@@ -81,14 +83,19 @@ class _CustomerState extends State<Customer> {
                             children: [
                               Row(
                                 children: [
-                                  Checkbox(
-                                    shape: const CircleBorder(),
-                                    value: checkBoxValue,
-                                    onChanged: (bool? newValue) {
+                                  const SizedBox(width: 10,),
+                                  InkWell(
+                                    onTap: (){
                                       setState(() {
-                                        checkBoxValue = newValue!;
+                                        selectedRowIndex1 = ! selectedRowIndex1;
                                       });
                                     },
+                                    child: SizedBox(
+                                      height: 18,
+                                      width: 18,
+                                      child: selectedRowIndex1
+                                          ? SvgPicture.asset("assets/svg/Icontick.svg")
+                                          : SvgPicture.asset("assets/svg/IconEmpty.svg"),),
                                   ),
                                   const SizedBox(
                                     width: 30,
@@ -169,7 +176,7 @@ class _CustomerState extends State<Customer> {
                                   ),
                                 ],
                               ),
-                              const Divider(),
+                              const Divider(height: 1,),
                               Expanded(
                                 child: ListView.builder(
                                   itemCount: dataItems.length,
@@ -179,25 +186,32 @@ class _CustomerState extends State<Customer> {
                                         InkWell(
                                           onTap:(){
                                             Navigator.pushNamed(context, RoutesName.customerSessionScreen);
+                                            setState(() {
+                                              selectedRowIndex = index;
+                                              //selectedRowIndex1 = !selectedRowIndex1 ;
+                                            });
                                           } ,
-                                          child: Row(
-                                            children: [
-                                              Checkbox(
-                                                shape: const CircleBorder(),
-                                                value: checkBoxValue,
-                                                onChanged: (bool? newValue) {
-                                                  setState(() {
-                                                    checkBoxValue = newValue!;
-                                                  });
-                                                },
-                                              ),
-                                              const SizedBox(
-                                                width: 30,
-                                              ),
-                                              SizedBox(
-                                                width: MediaQuery.sizeOf(context).height * 0.3,
-                                                child: Align(
-                                                  alignment: Alignment.topLeft,
+                                          child: Container(
+                                            height: 47,
+                                            decoration:BoxDecoration(
+                                                color: selectedRowIndex == index ? const Color(0x380A80BD): Colors.white,
+                                                borderRadius: BorderRadius.circular(3)
+                                            ),
+                                            child: Row(
+                                              children: [
+                                                const SizedBox(width: 10,),
+                                                SizedBox(
+                                                  height: 18,
+                                                  width: 18,
+                                                  child: selectedRowIndex == index
+                                                      ? SvgPicture.asset("assets/svg/Icontick.svg")
+                                                      : SvgPicture.asset("assets/svg/IconEmpty.svg"),),
+
+                                                const SizedBox(
+                                                  width: 30,
+                                                ),
+                                                SizedBox(
+                                                  width: MediaQuery.sizeOf(context).height * 0.3,
                                                   child: Text(
                                                     dataItems[index].id,
                                                     style: const TextStyle(
@@ -209,63 +223,63 @@ class _CustomerState extends State<Customer> {
                                                     ),
                                                   ),
                                                 ),
-                                              ),
-                                              SizedBox(
-                                                width: MediaQuery.sizeOf(context).height * 0.3,
-                                                child: Text(
-                                                  dataItems[index].name,
-                                                  style: const TextStyle(
-                                                    color: AppColors.blackColor,
-                                                    fontSize: 16,
-                                                    fontFamily: AppFonts.font,
-                                                    fontWeight: FontWeight.w400,
-                                                    letterSpacing: 0.19,
+                                                SizedBox(
+                                                  width: MediaQuery.sizeOf(context).height * 0.3,
+                                                  child: Text(
+                                                    dataItems[index].name,
+                                                    style: const TextStyle(
+                                                      color: AppColors.blackColor,
+                                                      fontSize: 16,
+                                                      fontFamily: AppFonts.font,
+                                                      fontWeight: FontWeight.w400,
+                                                      letterSpacing: 0.19,
+                                                    ),
                                                   ),
                                                 ),
-                                              ),
-                                              SizedBox(
-                                                width: MediaQuery.sizeOf(context).height * 0.3,
-                                                child: Text(
-                                                  dataItems[index].email,
-                                                  style: const TextStyle(
-                                                    color: AppColors.blackColor,
-                                                    fontSize: 16,
-                                                    fontFamily: AppFonts.font,
-                                                    fontWeight: FontWeight.w400,
-                                                    letterSpacing: 0.19,
+                                                SizedBox(
+                                                  width: MediaQuery.sizeOf(context).height * 0.3,
+                                                  child: Text(
+                                                    dataItems[index].email,
+                                                    style: const TextStyle(
+                                                      color: AppColors.blackColor,
+                                                      fontSize: 16,
+                                                      fontFamily: AppFonts.font,
+                                                      fontWeight: FontWeight.w400,
+                                                      letterSpacing: 0.19,
+                                                    ),
                                                   ),
                                                 ),
-                                              ),
-                                              SizedBox(
-                                                width: MediaQuery.sizeOf(context).height * 0.3,
-                                                child: Text(
-                                                  dataItems[index].telephone,
-                                                  style: const TextStyle(
-                                                    color: AppColors.blackColor,
-                                                    fontSize: 16,
-                                                    fontFamily: AppFonts.font,
-                                                    fontWeight: FontWeight.w400,
-                                                    letterSpacing: 0.19,
+                                                SizedBox(
+                                                  width: MediaQuery.sizeOf(context).height * 0.3,
+                                                  child: Text(
+                                                    dataItems[index].telephone,
+                                                    style: const TextStyle(
+                                                      color: AppColors.blackColor,
+                                                      fontSize: 16,
+                                                      fontFamily: AppFonts.font,
+                                                      fontWeight: FontWeight.w400,
+                                                      letterSpacing: 0.19,
+                                                    ),
                                                   ),
                                                 ),
-                                              ),
-                                              SizedBox(
-                                                width: MediaQuery.sizeOf(context).height * 0.3,
-                                                child: Text(
-                                                  dataItems[index].neighborhood,
-                                                  style: const TextStyle(
-                                                    color: AppColors.blackColor,
-                                                    fontSize: 16,
-                                                    fontFamily: AppFonts.font,
-                                                    fontWeight: FontWeight.w400,
-                                                    letterSpacing: 0.19,
+                                                SizedBox(
+                                                  width: MediaQuery.sizeOf(context).height * 0.3,
+                                                  child: Text(
+                                                    dataItems[index].neighborhood,
+                                                    style: const TextStyle(
+                                                      color: AppColors.blackColor,
+                                                      fontSize: 16,
+                                                      fontFamily: AppFonts.font,
+                                                      fontWeight: FontWeight.w400,
+                                                      letterSpacing: 0.19,
+                                                    ),
                                                   ),
                                                 ),
-                                              ),
-                                            ],
+                                              ],
+                                            ),
                                           ),
                                         ),
-                                        const Divider(),
+                                        const Divider(height: 1,),
                                       ],
                                     );
                                   },

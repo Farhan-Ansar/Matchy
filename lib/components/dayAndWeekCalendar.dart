@@ -32,7 +32,7 @@ class _CalendarAppState extends State<CalendarApp> {
     final DateTime today = DateTime.now();
     final DateTime startTime = DateTime(today.year, today.month, today.day,9);
     final DateTime endTime = startTime.add(const Duration(hours: 2));
-    meetings.add(Meeting('Conference', startTime, endTime, AppColors.blueTextColor, false));
+    meetings.add(Meeting('Hello \n ${"10:00 - 11:00"}', startTime, endTime, AppColors.blueTextColor, false));
 
     return meetings;
   }
@@ -135,7 +135,7 @@ class _CalendarAppDayState extends State<CalendarAppDay> {
     final DateTime today = DateTime.now();
     final DateTime startTime = DateTime(today.year, today.month, today.day,9);
     final DateTime endTime = startTime.add(const Duration(hours: 2));
-    meetings.add(Meeting('Conference', startTime, endTime, AppColors.blueTextColor, false));
+    meetings.add(Meeting('Conference \n ${"10:00 - 11:00"}', startTime, endTime, AppColors.blueTextColor, false));
 
     return meetings;
   }

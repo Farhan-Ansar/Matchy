@@ -115,7 +115,7 @@ class _SettingsState extends State<Settings> {
                                               });
                                             },
                                             child: SizedBox(
-                                              width: 250,
+                                              width: 243,
                                               height: 23,
                                               child: Text(
                                                 AppLocalizations.of(context)!.personalLink,
@@ -141,7 +141,7 @@ class _SettingsState extends State<Settings> {
                                               });
                                             },
                                             child: SizedBox(
-                                              width: 250,
+                                              width: 243,
                                               height: 23,
                                               child: Text(
                                                 AppLocalizations.of(context)!.availability,
@@ -167,7 +167,7 @@ class _SettingsState extends State<Settings> {
                                               });
                                             },
                                             child: SizedBox(
-                                              width: 250,
+                                              width: 243,
                                               height: 23,
                                               child: Text(
                                                 AppLocalizations.of(context)!.preferences,
@@ -496,61 +496,78 @@ class _SettingsState extends State<Settings> {
                                                   ),
                                                 ),
                                                 Row(
+                                                  mainAxisAlignment:MainAxisAlignment.spaceBetween,
                                                   children: [
-                                                    Checkbox(
-                                                      value: showValue,
-                                                      onChanged: (value) {
-                                                        setState(() {
-                                                          showValue = value!;
-                                                        });
-                                                      },
+                                                    Row(
+                                                        children: [
+
+                                                          Checkbox(
+                                                            value: showValue,
+                                                            onChanged: (value) {
+                                                              setState(() {
+                                                                showValue = value!;
+                                                              });
+                                                            },
+                                                          ),
+                                                          const SizedBox(
+                                                            width: 5,
+                                                          ),
+                                                          Container(
+                                                              width:30,
+                                                            child: Text(
+                                                              AppLocalizations.of(context)!.sun,
+                                                              style: const TextStyle(
+                                                                color: AppColors
+                                                                    .blackColor,
+                                                                fontSize: 12,
+                                                                fontFamily:
+                                                                AppFonts.font,
+                                                                fontWeight:
+                                                                FontWeight.w400,
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          const SizedBox(
+                                                            width: 15,
+                                                          ),
+                                                          Container(
+                                                              width:190,
+                                                            child: Text(
+                                                              AppLocalizations.of(context)!.unavailable,
+                                                              style: const TextStyle(
+                                                                color:
+                                                                Color(0xFF383838),
+                                                                fontSize: 12,
+                                                                fontFamily:
+                                                                AppFonts.font,
+                                                                fontWeight:
+                                                                FontWeight.w400,
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          const SizedBox(
+                                                            width: 90,
+                                                          ),
+                                                        ],
                                                     ),
-                                                    const SizedBox(
-                                                      width: 5,
+                                                    Row(
+                                                       
+                                                        children:[
+                                                          Align(
+                                                              alignment:
+                                                              Alignment.topRight,
+                                                              child: SvgPicture.asset(
+                                                                  "assets/svg/add12.svg")),
+                                                          const SizedBox(
+                                                            width: 15,
+                                                          ),
+                                                          Align(
+                                                              alignment:
+                                                              Alignment.topRight,
+                                                              child: SvgPicture.asset(
+                                                                  "assets/svg/copy.svg"))
+                                                        ]
                                                     ),
-                                                     Text(
-                                                      AppLocalizations.of(context)!.sun,
-                                                      style: const TextStyle(
-                                                        color: AppColors
-                                                            .blackColor,
-                                                        fontSize: 12,
-                                                        fontFamily:
-                                                            AppFonts.font,
-                                                        fontWeight:
-                                                            FontWeight.w400,
-                                                      ),
-                                                    ),
-                                                    const SizedBox(
-                                                      width: 15,
-                                                    ),
-                                                     Text(
-                                                      AppLocalizations.of(context)!.unavailable,
-                                                      style: const TextStyle(
-                                                        color:
-                                                            Color(0xFF383838),
-                                                        fontSize: 12,
-                                                        fontFamily:
-                                                            AppFonts.font,
-                                                        fontWeight:
-                                                            FontWeight.w400,
-                                                      ),
-                                                    ),
-                                                    const SizedBox(
-                                                      width: 200,
-                                                    ),
-                                                    Align(
-                                                        alignment:
-                                                            Alignment.topRight,
-                                                        child: SvgPicture.asset(
-                                                            "assets/svg/add12.svg")),
-                                                    const SizedBox(
-                                                      width: 15,
-                                                    ),
-                                                    Align(
-                                                        alignment:
-                                                            Alignment.topRight,
-                                                        child: SvgPicture.asset(
-                                                            "assets/svg/copy.svg"))
                                                   ],
                                                 ),
                                                 Container(
@@ -683,157 +700,11 @@ class _SettingsState extends State<Settings> {
                                                       ),
                                                     ),
                                                     const SizedBox(
-                                                      width: 155,
+                                                      width: 30,
                                                     ),
-                                                    Align(
-                                                        alignment:
-                                                            Alignment.topRight,
-                                                        child: SvgPicture.asset(
-                                                            "assets/svg/add12.svg")),
+                                                    SvgPicture.asset("assets/svg/deleteIcon.svg"),
                                                     const SizedBox(
-                                                      width: 15,
-                                                    ),
-                                                    Align(
-                                                        alignment:
-                                                            Alignment.topRight,
-                                                        child: SvgPicture.asset(
-                                                            "assets/svg/copy.svg"))
-                                                  ],
-                                                ),
-                                                const SizedBox(
-                                                  height: 10,
-                                                ),
-                                                Container(
-                                                  width: 418,
-                                                  decoration:
-                                                      const ShapeDecoration(
-                                                    shape:
-                                                        RoundedRectangleBorder(
-                                                      side: BorderSide(
-                                                        width: 0.88,
-                                                        strokeAlign: BorderSide
-                                                            .strokeAlignCenter,
-                                                        color:
-                                                            Color(0xFF969696),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                                const SizedBox(
-                                                  height: 10,
-                                                ),
-                                                Row(
-                                                  children: [
-                                                    Checkbox(
-                                                      value: showValue,
-                                                      onChanged: (value) {
-                                                        setState(() {
-                                                          showValue = value!;
-                                                        });
-                                                      },
-                                                    ),
-                                                    const SizedBox(
-                                                      width: 5,
-                                                    ),
-                                                     Text(
-                                                      AppLocalizations.of(context)!.mon,
-                                                      style: const TextStyle(
-                                                        color: AppColors
-                                                            .blackColor,
-                                                        fontSize: 12,
-                                                        fontFamily:
-                                                            AppFonts.font,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                      ),
-                                                    ),
-                                                    const SizedBox(
-                                                      width: 15,
-                                                    ),
-                                                    Container(
-                                                      width: 50.14,
-                                                      height: 21.99,
-                                                      decoration:
-                                                          ShapeDecoration(
-                                                        shape:
-                                                            RoundedRectangleBorder(
-                                                          side: const BorderSide(
-                                                              width: 0.88,
-                                                              color: AppColors
-                                                                  .blueTextColor),
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      5.28),
-                                                        ),
-                                                      ),
-                                                      child: const Center(
-                                                        child: Text(
-                                                          '9:00',
-                                                          style: TextStyle(
-                                                            color: AppColors
-                                                                .blueTextColor,
-                                                            fontSize: 12,
-                                                            fontFamily:
-                                                                'Roboto',
-                                                            fontWeight:
-                                                                FontWeight.w500,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    const SizedBox(
-                                                      width: 10,
-                                                    ),
-                                                    const Text(
-                                                      '-',
-                                                      style: TextStyle(
-                                                        color:
-                                                            Color(0xFF11387C),
-                                                        fontSize: 13.19,
-                                                        fontFamily: 'Roboto',
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                        height: 0,
-                                                      ),
-                                                    ),
-                                                    const SizedBox(
-                                                      width: 10,
-                                                    ),
-                                                    Container(
-                                                      width: 50.14,
-                                                      height: 21.99,
-                                                      decoration:
-                                                          ShapeDecoration(
-                                                        shape:
-                                                            RoundedRectangleBorder(
-                                                          side: const BorderSide(
-                                                              width: 0.88,
-                                                              color: AppColors
-                                                                  .blueTextColor),
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      5.28),
-                                                        ),
-                                                      ),
-                                                      child: const Center(
-                                                        child: Text(
-                                                          '9:00',
-                                                          style: TextStyle(
-                                                            color: AppColors
-                                                                .blueTextColor,
-                                                            fontSize: 12,
-                                                            fontFamily:
-                                                                'Roboto',
-                                                            fontWeight:
-                                                                FontWeight.w500,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    const SizedBox(
-                                                      width: 155,
+                                                      width: 115,
                                                     ),
                                                     Align(
                                                         alignment:
@@ -983,7 +854,165 @@ class _SettingsState extends State<Settings> {
                                                       ),
                                                     ),
                                                     const SizedBox(
-                                                      width: 155,
+                                                      width: 30,
+                                                    ),
+                                                    SvgPicture.asset("assets/svg/deleteIcon.svg"),
+                                                    const SizedBox(
+                                                      width: 115,
+                                                    ),
+                                                    Align(
+                                                        alignment:
+                                                            Alignment.topRight,
+                                                        child: SvgPicture.asset(
+                                                            "assets/svg/add12.svg")),
+                                                    const SizedBox(
+                                                      width: 15,
+                                                    ),
+                                                    Align(
+                                                        alignment:
+                                                            Alignment.topRight,
+                                                        child: SvgPicture.asset(
+                                                            "assets/svg/copy.svg"))
+                                                  ],
+                                                ),
+                                                const SizedBox(
+                                                  height: 10,
+                                                ),
+                                                Container(
+                                                  width: 418,
+                                                  decoration:
+                                                      const ShapeDecoration(
+                                                    shape:
+                                                        RoundedRectangleBorder(
+                                                      side: BorderSide(
+                                                        width: 0.88,
+                                                        strokeAlign: BorderSide
+                                                            .strokeAlignCenter,
+                                                        color:
+                                                            Color(0xFF969696),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                const SizedBox(
+                                                  height: 10,
+                                                ),
+                                                Row(
+                                                  children: [
+                                                    Checkbox(
+                                                      value: showValue,
+                                                      onChanged: (value) {
+                                                        setState(() {
+                                                          showValue = value!;
+                                                        });
+                                                      },
+                                                    ),
+                                                    const SizedBox(
+                                                      width: 5,
+                                                    ),
+                                                     Text(
+                                                      AppLocalizations.of(context)!.mon,
+                                                      style: const TextStyle(
+                                                        color: AppColors
+                                                            .blackColor,
+                                                        fontSize: 12,
+                                                        fontFamily:
+                                                            AppFonts.font,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                                    ),
+                                                    const SizedBox(
+                                                      width: 15,
+                                                    ),
+                                                    Container(
+                                                      width: 50.14,
+                                                      height: 21.99,
+                                                      decoration:
+                                                          ShapeDecoration(
+                                                        shape:
+                                                            RoundedRectangleBorder(
+                                                          side: const BorderSide(
+                                                              width: 0.88,
+                                                              color: AppColors
+                                                                  .blueTextColor),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      5.28),
+                                                        ),
+                                                      ),
+                                                      child: const Center(
+                                                        child: Text(
+                                                          '9:00',
+                                                          style: TextStyle(
+                                                            color: AppColors
+                                                                .blueTextColor,
+                                                            fontSize: 12,
+                                                            fontFamily:
+                                                                'Roboto',
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    const SizedBox(
+                                                      width: 10,
+                                                    ),
+                                                    const Text(
+                                                      '-',
+                                                      style: TextStyle(
+                                                        color:
+                                                            Color(0xFF11387C),
+                                                        fontSize: 13.19,
+                                                        fontFamily: 'Roboto',
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        height: 0,
+                                                      ),
+                                                    ),
+                                                    const SizedBox(
+                                                      width: 10,
+                                                    ),
+                                                    Container(
+                                                      width: 50.14,
+                                                      height: 21.99,
+                                                      decoration:
+                                                          ShapeDecoration(
+                                                        shape:
+                                                            RoundedRectangleBorder(
+                                                          side: const BorderSide(
+                                                              width: 0.88,
+                                                              color: AppColors
+                                                                  .blueTextColor),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      5.28),
+                                                        ),
+                                                      ),
+                                                      child: const Center(
+                                                        child: Text(
+                                                          '9:00',
+                                                          style: TextStyle(
+                                                            color: AppColors
+                                                                .blueTextColor,
+                                                            fontSize: 12,
+                                                            fontFamily:
+                                                                'Roboto',
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    const SizedBox(
+                                                      width: 30,
+                                                    ),
+                                                    SvgPicture.asset("assets/svg/deleteIcon.svg"),
+                                                    const SizedBox(
+                                                      width: 115,
                                                     ),
                                                     Align(
                                                         alignment:
@@ -1133,7 +1162,11 @@ class _SettingsState extends State<Settings> {
                                                       ),
                                                     ),
                                                     const SizedBox(
-                                                      width: 155,
+                                                      width: 30,
+                                                    ),
+                                                    SvgPicture.asset("assets/svg/deleteIcon.svg"),
+                                                    const SizedBox(
+                                                      width: 115,
                                                     ),
                                                     Align(
                                                         alignment:
@@ -1283,7 +1316,11 @@ class _SettingsState extends State<Settings> {
                                                       ),
                                                     ),
                                                     const SizedBox(
-                                                      width: 155,
+                                                      width: 30,
+                                                    ),
+                                                    SvgPicture.asset("assets/svg/deleteIcon.svg"),
+                                                    const SizedBox(
+                                                      width: 115,
                                                     ),
                                                     Align(
                                                         alignment:
@@ -1433,7 +1470,11 @@ class _SettingsState extends State<Settings> {
                                                       ),
                                                     ),
                                                     const SizedBox(
-                                                      width: 155,
+                                                      width: 30,
+                                                    ),
+                                                    SvgPicture.asset("assets/svg/deleteIcon.svg"),
+                                                    const SizedBox(
+                                                      width: 115,
                                                     ),
                                                     Align(
                                                         alignment:
@@ -1962,7 +2003,7 @@ class _SettingsState extends State<Settings> {
                                         Row(
                                           children: [
                                             Container(
-                                              width: 148.83,
+                                              width: 150.83,
                                               height: 46.47,
                                               clipBehavior: Clip.antiAlias,
                                               decoration: ShapeDecoration(
@@ -2051,7 +2092,7 @@ class _SettingsState extends State<Settings> {
                                               ),
                                             ),
                                             const SizedBox(
-                                              width: 180,
+                                              width: 178,
                                             ),
                                             Container(
                                               width: 145.83,

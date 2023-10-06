@@ -46,7 +46,7 @@ class _PerFilState extends State<PerFil> {
                               Navigator.pop(context);
                             },
                               child: SvgPicture.asset("assets/svg/drawer.svg")),
-                          SizedBox(width:MediaQuery.sizeOf(context).width*0.03),
+                          SizedBox(width:MediaQuery.sizeOf(context).width*0.015),
                           SvgPicture.asset("assets/svg/Group2.svg"),
                           const SizedBox(width: 10,),
                           SvgPicture.asset("assets/svg/Group1.svg"),

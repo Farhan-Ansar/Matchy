@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return  MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Rental App',
+      title: 'Matchy App',
       locale: const Locale("es"),
       localizationsDelegates: const [
         AppLocalizations.delegate, // Add this line
@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
             seedColor: const Color(0xFF11387f)),
         useMaterial3: true,
       ),
-      initialRoute: RoutesName.calendarScreen,
+      initialRoute: RoutesName.createAccountScreen,
       onGenerateRoute: Routes.generateRoutes,
     );
   }

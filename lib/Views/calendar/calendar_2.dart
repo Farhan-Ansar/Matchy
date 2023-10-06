@@ -60,7 +60,7 @@ class _Calendar2State extends State<Calendar2> {
                                 ),
                                 SvgPicture.asset("assets/svg/backIcon.svg"),
                                 const SizedBox(
-                                  width: 30,
+                                  width: 35,
                                 ),
                                  Text(
                                   AppLocalizations.of(context)!.back,
@@ -69,6 +69,7 @@ class _Calendar2State extends State<Calendar2> {
                                     fontSize: 24,
                                     fontFamily: AppFonts.font,
                                     fontWeight: FontWeight.w400,
+                                    height: 2
                                   ),
                                 ),
                               ],
@@ -188,7 +189,7 @@ class _Calendar2State extends State<Calendar2> {
                                                 ),
                                               ),
                                               TextSpan(
-                                                text: AppLocalizations.of(context)!.createNew,
+                                                text: AppLocalizations.of(context)!.service,
                                                 style: const TextStyle(
                                                   color: AppColors.blackColor,
                                                   fontSize: 18,
